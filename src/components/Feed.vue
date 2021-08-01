@@ -17,19 +17,24 @@
           >
             <img :src="article.author.image" alt="author" />
           </router-link>
-          <router-link
-            :to="{
-              name: 'userProfile',
-              params: { slug: article.author.username },
-            }"
-            class="author"
-          >
-            {{ article.author.username }}
-          </router-link>
-          <span class="date">{{ article.createdAt }}</span>
+          <div class="info">
+            <router-link
+              :to="{
+                name: 'userProfile',
+                params: { slug: article.author.username },
+              }"
+              class="author"
+            >
+              {{ article.author.username }}
+            </router-link>
+            <span class="date">{{ article.createdAt }}</span>
+          </div>
           <div class="pull-xs-right">add to favorites</div>
         </div>
-        <router-link :to="{ name: 'article', params: { slug: article.slug } }">
+        <router-link
+          class="preview-link"
+          :to="{ name: 'article', params: { slug: article.slug } }"
+        >
           <h1>{{ article.title }}</h1>
           <p>{{ article.description }}</p>
           <span>Read more...</span>
