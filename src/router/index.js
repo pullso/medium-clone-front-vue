@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import Register from "@/views/Register";
 import Login from "@/views/Login";
-import GlobalFeed from "../views/GlobalFeed";
+import GlobalFeed from "@/views/GlobalFeed";
 
 const routes = [
   {
