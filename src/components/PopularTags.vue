@@ -1,6 +1,10 @@
 <template>
-  <div v-if="isLoading">Loading...</div>
-  <div v-if="error">Something bad happened</div>
+  <div v-if="isLoading">
+    <app-loading />
+  </div>
+  <div v-if="error">
+    <app-error-message />
+  </div>
   <div class="sidebar" v-if="popularTags">
     <p>Popular tags</p>
     <div class="tag-list">
@@ -19,9 +23,12 @@
 <script>
 import { actionTypes } from "@/store/modules/tags";
 import { mapState } from "vuex";
+import AppLoading from "@/components/Loading";
+import AppErrorMessage from "@/components/ErrorMessage";
 
 export default {
   name: "AppPopularTags",
+  components: { AppLoading, AppErrorMessage },
   mounted() {
     this.$store.dispatch(actionTypes.getTags);
   },

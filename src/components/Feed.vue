@@ -1,7 +1,11 @@
 <template>
   <div>
-    <div v-if="isLoading">LOADING</div>
-    <div v-if="error">{{ error }}</div>
+    <div v-if="isLoading">
+      <app-loading />
+    </div>
+    <div v-if="error">
+      <app-error-message />
+    </div>
     <div v-if="feed">
       <div
         class="article-preview"
@@ -57,11 +61,18 @@ import { mapState } from "vuex";
 import AppPagination from "@/components/Pagination";
 import { limit } from "@/helpers/vars";
 import { stringify, parseUrl } from "query-string";
+import AppLoading from "@/components/Loading.vue";
+import AppErrorMessage from "@/components/ErrorMessage.vue";
 
 export default {
   name: "AppFeed",
   mounted() {
     this.fetchFeed();
+  },
+  components: {
+    AppPagination,
+    AppLoading,
+    AppErrorMessage,
   },
   data() {
     return {
@@ -107,9 +118,6 @@ export default {
     currentPage() {
       this.fetchFeed();
     },
-  },
-  components: {
-    AppPagination,
   },
 };
 </script>

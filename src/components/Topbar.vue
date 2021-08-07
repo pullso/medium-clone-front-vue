@@ -5,23 +5,23 @@
         >Pullso Medium Clone
       </router-link>
       <ul class="nav navbar-nav pull-xs-right">
-        <li class="navbar-item">
+        <li class="nav-item">
           <router-link class="nav-link" :to="{ name: 'globalFeed' }"
             >Home
           </router-link>
         </li>
         <template v-if="isLoggedIn">
-          <li class="navbar-item">
+          <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'createArticle' }">
               <i class="ion-compose" /> &nbsp; New article
             </router-link>
           </li>
-          <li class="navbar-item">
+          <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'settings' }">
               <i class="ion-gear-a" /> &nbsp; Settings
             </router-link>
           </li>
-          <li class="navbar-item">
+          <li class="nav-item">
             <router-link
               class="nav-link"
               :to="{
@@ -29,14 +29,19 @@
                 params: { slug: currentUser.username },
               }"
             >
-              <img :src="currentUser.image" alt="user image" class="user-pic" />
+              <img
+                v-if="currentUser.image"
+                :src="currentUser.image"
+                alt="user image"
+                class="user-pic"
+              />
               &nbsp;
               {{ currentUser.username }}
             </router-link>
           </li>
         </template>
         <template v-if="isAnonymous">
-          <li class="navbar-item">
+          <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'login' }">
               Sign in
             </router-link>
