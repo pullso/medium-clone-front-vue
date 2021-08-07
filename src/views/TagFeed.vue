@@ -4,8 +4,8 @@
     <div class="container page">
       <div class="row">
         <div class="col-md-9">
-          <app-feed-toggle />
-          <app-feed :api-url="apiUrl" />
+          <app-feed-toggle :tag-name="tagName" />
+          <app-feed :api-url="apiUrl" :key="tagName" />
         </div>
         <div class="col-md-3">
           <app-popular-tags />
@@ -22,11 +22,14 @@ import AppPopularTags from "@/components/PopularTags";
 import AppBanner from "@/components/Banner";
 
 export default {
-  name: "AppGlobalFeed",
-  data() {
-    return {
-      apiUrl: "/articles",
-    };
+  name: "AppYourFeed",
+  computed: {
+    apiUrl() {
+      return `/articles?tag=${this.tagName}`;
+    },
+    tagName() {
+      return this.$route.params.slug;
+    },
   },
   components: {
     AppBanner,

@@ -17,15 +17,15 @@
 
 <script>
 import AppFeed from "@/components/Feed";
-import AppFeedToggle from "@/components/FeedToggle";
 import AppPopularTags from "@/components/PopularTags";
 import AppBanner from "@/components/Banner";
+import AppFeedToggle from "@/components/FeedToggle";
 
 export default {
-  name: "AppGlobalFeed",
+  name: "AppYourFeed",
   data() {
     return {
-      apiUrl: "/articles",
+      apiUrl: "/articles/feed",
     };
   },
   components: {
