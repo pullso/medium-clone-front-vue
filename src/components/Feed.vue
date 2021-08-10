@@ -42,7 +42,7 @@
           <h1>{{ article.title }}</h1>
           <p>{{ article.description }}</p>
           <span>Read more...</span>
-          TAG LIST
+          <app-tag-list :tags="article.tagList" />
         </router-link>
       </div>
       <app-pagination
@@ -63,6 +63,7 @@ import { limit } from "@/helpers/vars";
 import { stringify, parseUrl } from "query-string";
 import AppLoading from "@/components/Loading.vue";
 import AppErrorMessage from "@/components/ErrorMessage.vue";
+import AppTagList from "@/components/TagList";
 
 export default {
   name: "AppFeed",
@@ -73,6 +74,7 @@ export default {
     AppPagination,
     AppLoading,
     AppErrorMessage,
+    AppTagList,
   },
   data() {
     return {
