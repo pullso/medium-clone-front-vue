@@ -17,7 +17,7 @@ export const mutationTypes = {
 
 export const actionTypes = {
   getArticle: "[article] getArticle",
-  deleteArticle: "[article] getArticle",
+  deleteArticle: "[article] deleteArticle",
 };
 
 const mutations = {
@@ -54,15 +54,15 @@ const actions = {
   },
   [actionTypes.deleteArticle](context, { slug }) {
     return new Promise((resolve) => {
-      context.commit(mutationTypes.getArticleStart);
+      context.commit(mutationTypes.deleteArticleStart);
       articleApi
         .deleteArticle(slug)
         .then(() => {
-          context.commit(mutationTypes.getArticleSuccess);
+          context.commit(mutationTypes.deleteArticleSuccess);
           resolve();
         })
         .catch(() => {
-          context.commit(mutationTypes.getArticleFailure);
+          context.commit(mutationTypes.deleteArticleFailure);
         });
     });
   },

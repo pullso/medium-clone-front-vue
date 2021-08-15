@@ -5,6 +5,8 @@ import GlobalFeed from "@/views/GlobalFeed";
 import YourFeed from "@/views/YourFeed";
 import TagFeed from "@/views/TagFeed";
 import Article from "@/views/Article";
+import CreateArticle from "@/views/CreateArticle";
+import EditArticle from "@/views/EditArticle";
 
 const routes = [
   {
@@ -33,19 +35,19 @@ const routes = [
     component: TagFeed,
   },
   {
-    path: "/articles/new",
+    path: "/article/new",
     name: "createArticle",
-    component: GlobalFeed,
+    component: CreateArticle,
   },
   {
-    path: "/articles/:slug",
+    path: "/article/:slug",
     name: "article",
     component: Article,
   },
   {
-    path: "/articles/:slug/edit",
+    path: "/article/:slug/edit",
     name: "editArticle",
-    component: GlobalFeed,
+    component: EditArticle,
   },
   {
     path: "/settings",

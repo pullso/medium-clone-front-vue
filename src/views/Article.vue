@@ -56,7 +56,7 @@
           <div>
             <p>{{ article.body }}</p>
           </div>
-          TAGLIST
+          <app-tag-list :tags="article.tagList" />
         </div>
       </div>
     </div>
@@ -69,6 +69,7 @@ import { getterTypes as authGetterTypes } from "@/store/modules/auth";
 import { mapGetters, mapState } from "vuex";
 import AppLoading from "@/components/Loading";
 import AppErrorMessage from "@/components/ErrorMessage";
+import AppTagList from "@/components/TagList";
 
 export default {
   name: "AppArticle",
@@ -88,7 +89,7 @@ export default {
     }),
     isAuthor() {
       if (!this.currentUser || !this.article) return false;
-      return this.currentUser.username === this.article.username;
+      return this.currentUser.username === this.article.author.username;
     },
   },
   methods: {
@@ -103,6 +104,7 @@ export default {
     },
   },
   components: {
+    AppTagList,
     AppLoading,
     AppErrorMessage,
   },
