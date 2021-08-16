@@ -33,7 +33,13 @@
             </router-link>
             <span class="date">{{ article.createdAt }}</span>
           </div>
-          <div class="pull-xs-right">add to favorites</div>
+          <div class="pull-xs-right">
+            <app-add-to-favorites
+              :is-favorited="article.favorited"
+              :article-slug="article.slug"
+              :favorites-count="article.favoritesCount"
+            />
+          </div>
         </div>
         <router-link
           class="preview-link"
@@ -63,6 +69,7 @@ import { limit } from "@/helpers/vars";
 import { stringify, parseUrl } from "query-string";
 import AppLoading from "@/components/Loading.vue";
 import AppErrorMessage from "@/components/ErrorMessage.vue";
+import AppAddToFavorites from "@/components/AddToFavorites.vue";
 import AppTagList from "@/components/TagList";
 
 export default {
@@ -75,6 +82,7 @@ export default {
     AppLoading,
     AppErrorMessage,
     AppTagList,
+    AppAddToFavorites,
   },
   data() {
     return {

@@ -18,7 +18,7 @@ const getCurrentUser = () => {
 
 const updateCurrentUser = (currentUserInput) => {
   return axios
-    .put("/user", { currentUserInput })
+    .put("/user", { user: currentUserInput })
     .then((response) => response.data.user);
 };
 
